@@ -8,7 +8,7 @@ export default function decorate(block) {
 
   //const heroBlock = document.querySelector('.hero.block');
   const pictureElement = block.querySelector('div picture');
-  const titleElement = block.querySelector('#hello-title');
+  const titleElement = block.querySelector('div:nth-child(2) > div > p');
   const descriptionElement = block.querySelector('div:nth-child(3) > div > p');
   const linkElement = block.querySelector('div a');
 
