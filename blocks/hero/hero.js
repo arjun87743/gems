@@ -7,7 +7,7 @@ export default function decorate(block) {
 
 
   //const heroBlock = document.querySelector('.hero.block');
-  const pictureElement = block.querySelector('div');
+  const pictureElement = block.querySelector('div picture');
   const titleElement = block.querySelector('#hello-title');
   const descriptionElement = block.querySelector('div:nth-child(3) > div > p');
   const linkElement = block.querySelector('div a');
@@ -24,6 +24,7 @@ export default function decorate(block) {
   const heroDescription = document.createElement('p');
   heroDescription.textContent = descriptionElement.textContent;
 
+  const pictureDiv = document.createElement('div').appendChild(pictureElement);
   // Create and set up the button element
   const heroButton = document.createElement('a');
   heroButton.href = linkElement.href;
