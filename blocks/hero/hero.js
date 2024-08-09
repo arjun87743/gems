@@ -25,23 +25,38 @@ export default function decorate(block) {
   const heroDescription = document.createElement('p');
   heroDescription.textContent = descriptionElement.textContent;
 
-  const pictureDiv = document.createElement('div').appendChild(pictureElement);
-  // Create and set up the button element
+  // Create and set up the picture element
+  const pictureDiv = document.createElement('div');
+  pictureDiv.appendChild(pictureElement);
+
+  // Create and set up the button div
   const heroButton = document.createElement('a');
   heroButton.href = linkElement.href;
   heroButton.textContent = buttonElement.textContent; 
   heroButton.classList.add('hero-button');
   heroButton.setAttribute('role', 'button');
+  const buttonDiv = document.createElement('div');
+  buttonDiv.appendChild(heroButton);
+
+  const contentDiv = document.createElement('div');
+  contentDiv.appendChild(heroTitle);
+  contentDiv.appendChild(heroDescription);
+
+  
+  const mainDiv = document.createElement('div');
+  mainDiv.appendChild(contentDiv);
+  mainDiv.appendChild(buttonDiv);
 
   // Append the title, description, and button to the hero container
   heroContainer.appendChild(pictureDiv);
-  heroContainer.appendChild(heroTitle);
-  heroContainer.appendChild(heroDescription);
-  heroContainer.appendChild(heroButton);
+  //heroContainer.appendChild(heroTitle);
+  //heroContainer.appendChild(heroDescription);
+  //heroContainer.appendChild(heroButton);
+  heroContainer.appendChild(mainDiv);
 
   console.log("hero container");
   console.log(heroContainer);
-  
+
   // Replace the existing hero block with the new hero container
   block.innerHTML = '';
   block.appendChild(heroContainer);
