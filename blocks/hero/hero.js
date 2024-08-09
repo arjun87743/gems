@@ -9,7 +9,7 @@ export default function decorate(block) {
   const heroBlock = document.querySelector('.hero.block');
     const titleElement = document.querySelector('#hello-title');
     const descriptionElement = document.querySelector('.hero-wrapper > .hero.block > div:nth-child(3) > div > p');
-    const linkElement = document.querySelector('.hero-wrapper > .hero.block > div:nth-child(5) .primary a');
+    const linkElement = document.querySelector('.hero.block div a');
 
     // Create the hero container
     const heroContainer = document.createElement('div');
