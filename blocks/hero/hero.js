@@ -1,22 +1,45 @@
 export default function decorate(block) {
-    const buttons = document.createElement('div');
-    buttons.className = 'hero-buttons';
-    [...block.children].forEach((row, i) => {
-      const classes = ['image', 'text'];
-      classes.forEach((e, j) => {
-        row.children[j].classList.add(`hero-${e}`);
-      });
-      /* buttons */
-      const button = document.createElement('button');
-      button.title = 'Hero Button';
-      if (!i) button.classList.add('selected');
-      button.addEventListener('click', () => {
-        block.scrollTo({ top: 0, left: row.offsetLeft - row.parentNode.offsetLeft, behavior: 'smooth' });
-        [...buttons.children].forEach((r) => r.classList.remove('selected'));
-        button.classList.add('selected');
-      });
-      buttons.append(button);
-    });
-    block.parentElement.append(buttons);
-  }
+
+  console.log("hero block")
+  console.log(block);
+  const anchor = block.getElementsByTagName('a');
+  console.log(anchor);
   
+
+  const heroBlock = document.querySelector('.hero.block');
+    const titleElement = document.querySelector('#hello-title');
+    const descriptionElement = document.querySelector('.hero-wrapper > .hero.block > div:nth-child(3) > div > p');
+    const linkElement = document.querySelector('.hero-wrapper > .hero.block > div:nth-child(5) .primary a');
+
+    // Create the hero container
+    const heroContainer = document.createElement('div');
+    heroContainer.classList.add('hero-component');
+
+    // Create and set up the title element
+    const heroTitle = document.createElement('h1');
+    heroTitle.textContent = titleElement.textContent;
+
+    // Create and set up the description element
+    const heroDescription = document.createElement('p');
+    heroDescription.textContent = descriptionElement.textContent;
+
+    // Create and set up the button element
+    const heroButton = document.createElement('a');
+    heroButton.href = linkElement.href;
+    heroButton.textContent = 'Click here';  // You can customize the button text if needed
+    heroButton.classList.add('hero-button');
+    heroButton.setAttribute('role', 'button');
+
+    // Append the title, description, and button to the hero container
+    heroContainer.appendChild(heroTitle);
+    heroContainer.appendChild(heroDescription);
+    heroContainer.appendChild(heroButton);
+
+    console.log("hero container");
+    console.log(heroContainer);
+    // Replace the existing hero block with the new hero container
+   // heroBlock.innerHTML = '';
+   // heroBlock.appendChild(heroContainer);
+
+}
+
