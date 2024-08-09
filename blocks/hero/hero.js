@@ -33,7 +33,7 @@ export default function decorate(block) {
   heroButton.setAttribute('role', 'button');
 
   // Append the title, description, and button to the hero container
-  heroContainer.appendChild(pictureElement);
+  heroContainer.appendChild(pictureDiv);
   heroContainer.appendChild(heroTitle);
   heroContainer.appendChild(heroDescription);
   heroContainer.appendChild(heroButton);
@@ -41,8 +41,8 @@ export default function decorate(block) {
   console.log("hero container");
   console.log(heroContainer);
   // Replace the existing hero block with the new hero container
-  // block.innerHTML = '';
-  // block.appendChild(heroContainer);
+  block.innerHTML = '';
+  block.appendChild(heroContainer);
 
 }
 
