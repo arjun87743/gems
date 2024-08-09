@@ -10,6 +10,7 @@ export default function decorate(block) {
   const pictureElement = block.querySelector('div picture');
   const titleElement = block.querySelector('div:nth-child(2) > div > p');
   const descriptionElement = block.querySelector('div:nth-child(3) > div > p');
+  const buttonElement = block.querySelector('div:nth-child(4) > div > p');
   const linkElement = block.querySelector('div a');
 
   // Create the hero container
@@ -28,7 +29,7 @@ export default function decorate(block) {
   // Create and set up the button element
   const heroButton = document.createElement('a');
   heroButton.href = linkElement.href;
-  heroButton.textContent = 'Click here';  // You can customize the button text if needed
+  heroButton.textContent = buttonElement.textContent; 
   heroButton.classList.add('hero-button');
   heroButton.setAttribute('role', 'button');
 
@@ -40,6 +41,7 @@ export default function decorate(block) {
 
   console.log("hero container");
   console.log(heroContainer);
+  
   // Replace the existing hero block with the new hero container
   block.innerHTML = '';
   block.appendChild(heroContainer);
